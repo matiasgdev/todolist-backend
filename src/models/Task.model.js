@@ -23,7 +23,7 @@ const taskSchema = new Schema({
   // date of finish task
   dof: { 
     type: Date,
-    required: true
+    default: new Date(Date.now() + 604800000) 
   }
 }, {
   timestamps: true,

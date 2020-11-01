@@ -52,10 +52,6 @@ const schemaUpdate = yup.object().shape({
   ,
   dof: yup
     .date()
-    .default(function() {
-      // one week for date of finish
-      return new Date(Date.now() + 604800000) 
-    })
 })
 
 
