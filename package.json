@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir build",
     "data:destroy": "babel-node src/seeder.js destroy",
-    "data:import": "babel-node src/seeder.js"    
+    "data:import": "babel-node src/seeder.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "yup": "^0.29.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",

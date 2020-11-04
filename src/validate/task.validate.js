@@ -2,20 +2,20 @@ import * as yup from 'yup'
 
 const schemaCreate = yup.object().shape({
   user: yup
-    .string()
-    .trim()
-    .min(4, 'El nombre de usuario debe tener al menos 4 caracteres')
-    .required()
+  .string()
+  .trim()
+  .min(4, 'El nombre de usuario debe tener al menos 4 caracteres')
   ,
   title: yup
     .string()
-    .required()
+    .required('Se requiere un título')
+    .lowercase()
     .min(7, 'El titulo debe tener al menos 5 caracteres')
     .max(20, 'El titulo debe tener máximo 20 caracteres')
   ,
   description: yup
     .string()
-    .required()
+    .required('Se requiere una descripción')
     .min(50, 'La descripcion debe tener al menos 50 caracteres')
   ,
   completed: yup
@@ -39,7 +39,7 @@ const schemaUpdate = yup.object().shape({
   ,
   title: yup
     .string()
-    .min(7, 'El titulo debe tener al menos 5 caracteres')
+    .min(7, 'El titulo debe tener al menos 7 caracteres')
     .max(20, 'El titulo debe tener máximo 20 caracteres')
   ,
   description: yup

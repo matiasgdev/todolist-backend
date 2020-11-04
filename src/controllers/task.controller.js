@@ -14,6 +14,18 @@ class TaskController {
     }
   }
 
+  async listByUser(req, res, next) {
+    try {
+      const userTasks = await Task.find({
+        user: req.params.user
+      })
+      res.json(userTasks)
+
+    } catch (err) {
+      next(err)
+    }
+  }
+
   async detail(req, res, next) {
     res.json(res.task)
   }
@@ -21,6 +33,14 @@ class TaskController {
   async create(req, res, next) {
     try {
       let newTask = new Task(req.body)
+
+      const taskExists = await Task.findOne({title: newTask.title})
+
+      if (taskExists) {
+        res.status(400)
+        throw new Error('Ya existe una tarea con ese título')
+      }
+
       newTask = await newTask.save()
 
       res.status(201).json({

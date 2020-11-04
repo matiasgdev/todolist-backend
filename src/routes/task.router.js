@@ -7,6 +7,9 @@ const router = express.Router()
 // list
 router.get('/', task.list)
 
+// list user tasks
+router.get('/user/:user', task.listByUser)
+
 // create
 router.post('/', validateCreate, task.create)
 

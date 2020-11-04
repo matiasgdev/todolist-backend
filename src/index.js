@@ -22,7 +22,7 @@ if (process.env.ENVIROMENT === 'development') {
 }
 app.use(express.json())
 app.use(cors({
-  origin: 'http://localhost'
+  origin: 'http://localhost:3000'
 }))
 
 app.get('/', (req, res) => {
